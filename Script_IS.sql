@@ -1,6 +1,6 @@
 
 -- Crear la base de datos
-CREATE DATABASE IF NOT EXISTS preyecto_is;
+CREATE DATABASE IF NOT EXISTS proyecto_is;
 USE proyecto_is;
 
 -- Crear la tabla RESPONSABLES
