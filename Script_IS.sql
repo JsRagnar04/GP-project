@@ -64,10 +64,10 @@ CREATE TABLE RESERVACIONES (
 -- Insertar los responsables
 INSERT INTO RESPONSABLES (ID_RESPONSABLE, PASSWORD, NOMBRE, ROL) 
 VALUES 
-    ('l21280568', 'adminOrcl', 'Juan Hernandez', 'admin'),
-    ('l21280548', '1234', 'Cesar Cervantes', 'user'),
-    ('l21280534', 'armdn01', 'Armando Morales', 'user'),
-    ('l21280570', 'werapass', 'Andrea Fernandez', 'user');
+ ('l21280568', 'adminOrcl', 'Juan Hernandez', 'admin'),
+ ('l21280548', '1234', 'Cesar Cervantes', 'user'),
+ ('l21280534', 'armdn01', 'Armando Morales', 'user'),
+ ('l21280570', 'werapass', 'Andrea Fernandez', 'user');
 
 
 -- Insertar los edificios
@@ -203,18 +203,3 @@ VALUES
 VALUES 
     ('B-1', 'C-13'), ('B-2', 'C-14'), ('B-3', 'C-15'),
     ('B-4', 'C-16'), ('B-5', 'C-17'), ('B-6', 'C-18');
-    
-
-use proyecto_is;
-   
-SELECT ID_SALON, ID_EDIFICIO, PISO, CAPACIDAD, TIPO, COUNT(TIPO)
-FROM SALONES join SALON_EQUIPOS se USING(ID_SALON)
-join EQUIPOS e on se.ID_EQUIPO = e.ID_EQUIPO
-where ID_SALON = 'TLC-1'   
-group by ID_SALON, ID_EDIFICIO, PISO,CAPACIDAD, TIPO;
-
-
-
-select * from responsables;
-
-    
