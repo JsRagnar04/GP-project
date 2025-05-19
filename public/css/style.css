@@ -1,0 +1,1208 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+:root {
+	--poppins: 'Poppins', sans-serif;
+	--lato: 'Lato', sans-serif;
+
+	--light: #F9F9F9;
+	--blue: #3C91E6;
+	--light-blue: #CFE8FF;
+	--grey: #eee;
+	--dark-grey: #AAAAAA;
+	--dark: #342E37;
+	--red: #DB504A;
+	--yellow: #FFCE26;
+	--light-yellow: #FFF2C6;
+	--orange: #FD7238;
+	--light-orange: #FFE0D3;
+}
+
+html {
+	overflow-x: hidden;
+}
+
+body.dark {
+	--light: #0C0C1E;
+	--grey: #060714;
+	--dark: #FBFBFB;
+}
+
+body {
+	background: var(--grey);
+	overflow-x: hidden;
+}
+
+
+
+
+
+/* SIDEBAR */
+#sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 280px;
+	height: 100%;
+	background: var(--light);
+	z-index: 2000;
+	font-family: var(--lato);
+	transition: .3s ease;
+	overflow-x: hidden;
+	scrollbar-width: none;
+}
+
+#sidebar::--webkit-scrollbar {
+	display: none;
+}
+
+#sidebar.hide {
+	width: 60px;
+}
+
+#sidebar .brand {
+	font-size: 24px;
+	font-weight: 700;
+	height: 56px;
+	display: flex;
+	align-items: center;
+	color: var(--blue);
+	position: sticky;
+	top: 0;
+	left: 0;
+	background: var(--light);
+	z-index: 500;
+	padding-bottom: 20px;
+	box-sizing: content-box;
+}
+
+#sidebar .brand .bx {
+	min-width: 60px;
+	display: flex;
+	justify-content: center;
+}
+
+#sidebar .side-menu {
+	width: 100%;
+	margin-top: 48px;
+}
+
+#sidebar .side-menu li {
+	height: 48px;
+	background: transparent;
+	margin-left: 6px;
+	border-radius: 48px 0 0 48px;
+	padding: 4px;
+}
+
+#sidebar .side-menu li.active {
+	background: var(--grey);
+	position: relative;
+}
+
+#sidebar .side-menu li.active::before {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	top: -40px;
+	right: 0;
+	box-shadow: 20px 20px 0 var(--grey);
+	z-index: -1;
+}
+
+#sidebar .side-menu li.active::after {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	bottom: -40px;
+	right: 0;
+	box-shadow: 20px -20px 0 var(--grey);
+	z-index: -1;
+}
+
+#sidebar .side-menu li a {
+	width: 100%;
+	height: 100%;
+	background: var(--light);
+	display: flex;
+	align-items: center;
+	border-radius: 48px;
+	font-size: 16px;
+	color: var(--dark);
+	white-space: nowrap;
+	overflow-x: hidden;
+}
+
+#sidebar .side-menu.top li.active a {
+	color: var(--blue);
+}
+
+#sidebar.hide .side-menu li a {
+	width: calc(48px - (4px * 2));
+	transition: width .3s ease;
+}
+
+#sidebar .side-menu li a.logout {
+	color: var(--red);
+}
+
+#sidebar .side-menu.top li a:hover {
+	color: var(--blue);
+}
+
+#sidebar .side-menu li a .bx {
+	min-width: calc(60px - ((4px + 6px) * 2));
+	display: flex;
+	justify-content: center;
+}
+
+/* SIDEBAR */
+
+
+
+
+
+/* CONTENT */
+#content {
+	position: relative;
+	width: calc(100% - 280px);
+	left: 280px;
+	transition: .3s ease;
+}
+
+#sidebar.hide~#content {
+	width: calc(100% - 60px);
+	left: 60px;
+}
+
+
+
+
+/* NAVBAR */
+#content nav {
+	height: 56px;
+	background: var(--light);
+	padding: 0 24px;
+	display: flex;
+	align-items: center;
+	grid-gap: 24px;
+	font-family: var(--lato);
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+
+#content nav::before {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	bottom: -40px;
+	left: 0;
+	border-radius: 50%;
+	box-shadow: -20px -20px 0 var(--light);
+}
+
+#content nav a {
+	color: var(--dark);
+}
+
+#content nav .bx.bx-menu {
+	cursor: pointer;
+	color: var(--dark);
+}
+
+#content nav .nav-link {
+	font-size: 16px;
+	transition: .3s ease;
+}
+
+#content nav .nav-link:hover {
+	color: var(--blue);
+}
+
+#content nav form {
+	max-width: 400px;
+	width: 100%;
+	margin-right: auto;
+}
+
+#content nav form .form-input {
+	display: flex;
+	align-items: center;
+	height: 36px;
+}
+
+#content nav form .form-input input {
+	flex-grow: 1;
+	padding: 0 16px;
+	height: 100%;
+	border: none;
+	background: var(--grey);
+	border-radius: 36px 0 0 36px;
+	outline: none;
+	width: 100%;
+	color: var(--dark);
+}
+
+#content nav form .form-input button {
+	width: 36px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--blue);
+	color: var(--light);
+	font-size: 18px;
+	border: none;
+	outline: none;
+	border-radius: 0 36px 36px 0;
+	cursor: pointer;
+}
+
+#content nav .notification {
+	font-size: 20px;
+	position: relative;
+}
+
+#content nav .notification .num {
+	position: absolute;
+	top: -6px;
+	right: -6px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid var(--light);
+	background: var(--red);
+	color: var(--light);
+	font-weight: 700;
+	font-size: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#content nav .profile img {
+	width: 36px;
+	height: 36px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+#content nav .switch-mode {
+	display: block;
+	min-width: 50px;
+	height: 25px;
+	border-radius: 25px;
+	background: var(--grey);
+	cursor: pointer;
+	position: relative;
+}
+
+#content nav .switch-mode::before {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	bottom: 2px;
+	width: calc(25px - 4px);
+	background: var(--blue);
+	border-radius: 50%;
+	transition: all .3s ease;
+}
+
+#content nav #switch-mode:checked+.switch-mode::before {
+	left: calc(100% - (25px - 4px) - 2px);
+}
+
+/* NAVBAR */
+
+
+
+
+
+/* MAIN */
+#content main {
+	width: 100%;
+	padding: 36px 24px;
+	font-family: var(--poppins);
+	max-height: calc(100vh - 56px);
+	overflow-y: auto;
+}
+
+#content main .head-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	grid-gap: 16px;
+	flex-wrap: wrap;
+}
+
+#content main .head-title .left h1 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: var(--dark);
+}
+
+#content main .head-title .left .breadcrumb {
+	display: flex;
+	align-items: center;
+	grid-gap: 16px;
+}
+
+#content main .head-title .left .breadcrumb li {
+	color: var(--dark);
+}
+
+#content main .head-title .left .breadcrumb li a {
+	color: var(--dark-grey);
+	pointer-events: none;
+}
+
+#content main .head-title .left .breadcrumb li a.active {
+	color: var(--blue);
+	pointer-events: unset;
+}
+
+#content main .head-title .btn-download {
+	height: 36px;
+	padding: 0 16px;
+	border-radius: 36px;
+	background: var(--blue);
+	color: var(--light);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-gap: 10px;
+	font-weight: 500;
+}
+
+
+
+
+#content main .box-info {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	grid-gap: 24px;
+	margin-top: 36px;
+}
+
+#content main .box-info li {
+	padding: 24px;
+	background: var(--light);
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	grid-gap: 24px;
+}
+
+#content main .box-info li .bx {
+	width: 80px;
+	height: 80px;
+	border-radius: 10px;
+	font-size: 36px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#content main .box-info li:nth-child(1) .bx {
+	background: var(--light-blue);
+	color: var(--blue);
+}
+
+#content main .box-info li:nth-child(2) .bx {
+	background: var(--light-yellow);
+	color: var(--yellow);
+}
+
+#content main .box-info li:nth-child(3) .bx {
+	background: var(--light-orange);
+	color: var(--orange);
+}
+
+#content main .box-info li .text h3 {
+	font-size: 24px;
+	font-weight: 600;
+	color: var(--dark);
+}
+
+#content main .box-info li .text p {
+	color: var(--dark);
+}
+
+
+
+
+
+#content main .table-data {
+	display: flex;
+	flex-wrap: wrap;
+	grid-gap: 24px;
+	margin-top: 24px;
+	width: 100%;
+	color: var(--dark);
+}
+
+#content main .table-data>div {
+	border-radius: 20px;
+	background: var(--light);
+	padding: 24px;
+	overflow-x: auto;
+}
+
+#content main .table-data .head {
+	display: flex;
+	align-items: center;
+	grid-gap: 16px;
+	margin-bottom: 24px;
+}
+
+#content main .table-data .head h3 {
+	margin-right: auto;
+	font-size: 24px;
+	font-weight: 600;
+}
+
+#content main .table-data .head .x {
+	cursor: pointer;
+}
+
+#content main .table-data .order {
+	flex-grow: 1;
+	flex-basis: 500px;
+}
+
+#content main .table-data .order table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#content main .table-data .order table th {
+	padding-bottom: 12px;
+	font-size: 13px;
+	text-align: left;
+	border-bottom: 1px solid var(--grey);
+}
+
+#content main .table-data .order table td {
+	padding: 16px 0;
+}
+
+#content main .table-data .order table tr td:first-child {
+	display: flex;
+	align-items: center;
+	grid-gap: 12px;
+	padding-left: 6px;
+}
+
+#content main .table-data .order table td img {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+#content main .table-data .order table tbody tr:hover {
+	background: var(--grey);
+}
+
+#content main .table-data .order table tr td .status {
+	font-size: 10px;
+	padding: 6px 16px;
+	color: var(--light);
+	border-radius: 20px;
+	font-weight: 700;
+}
+
+#content main .table-data .order table tr td .status.completed {
+	background: var(--blue);
+}
+
+#content main .table-data .order table tr td .status.process {
+	background: var(--yellow);
+}
+
+#content main .table-data .order table tr td .status.pending {
+	background: var(--orange);
+}
+
+
+#content main .table-data .todo {
+	flex-grow: 1;
+	flex-basis: 300px;
+}
+
+#content main .table-data .todo .todo-list {
+	width: 100%;
+}
+
+#content main .table-data .todo .todo-list li {
+	width: 100%;
+	margin-bottom: 16px;
+	background: var(--grey);
+	border-radius: 10px;
+	padding: 14px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#content main .table-data .todo .todo-list li .bx {
+	cursor: pointer;
+}
+
+#content main .table-data .todo .todo-list li.completed {
+	border-left: 10px solid var(--blue);
+}
+
+#content main .table-data .todo .todo-list li.not-completed {
+	border-left: 10px solid var(--orange);
+}
+
+#content main .table-data .todo .todo-list li:last-child {
+	margin-bottom: 0;
+}
+
+/* MAIN */
+/* CONTENT */
+
+
+@media screen and (max-width: 768px) {
+	#sidebar {
+		width: 200px;
+	}
+
+	#content {
+		width: calc(100% - 60px);
+		left: 200px;
+	}
+
+	#content nav .nav-link {
+		display: none;
+	}
+}
+
+
+@media screen and (max-width: 576px) {
+	#content nav form .form-input input {
+		display: none;
+	}
+
+	#content nav form .form-input button {
+		width: auto;
+		height: auto;
+		background: transparent;
+		border-radius: none;
+		color: var(--dark);
+	}
+
+	#content nav form.show .form-input input {
+		display: block;
+		width: 100%;
+	}
+
+	#content nav form.show .form-input button {
+		width: 36px;
+		height: 100%;
+		border-radius: 0 36px 36px 0;
+		color: var(--light);
+		background: var(--red);
+	}
+
+	#content nav form.show~.notification,
+	#content nav form.show~.profile {
+		display: none;
+	}
+
+	#content main .box-info {
+		grid-template-columns: 1fr;
+	}
+
+	#content main .table-data .head {
+		min-width: 420px;
+	}
+
+	#content main .table-data .order table {
+		min-width: 420px;
+	}
+
+	#content main .table-data .todo .todo-list {
+		min-width: 420px;
+	}
+}
+
+
+.breadcrumb-select {
+	background: none;
+	border: none;
+	font-size: 14px;
+	/* Ajusta el tamaño de la fuente */
+	color: #333;
+	/* Cambia el color del texto */
+	appearance: none;
+	/* Esto elimina el estilo predeterminado del select en algunos navegadores */
+	padding: 5px;
+	cursor: pointer;
+}
+
+.breadcrumb-select:focus {
+	outline: none;
+	/* Remueve el contorno cuando está en foco */
+}
+
+.filter {
+	display: none
+}
+
+
+/* =====================================
+   Estilos para la sección Flatpickr
+====================================== */
+.flatpickr-container {
+	background-color: #f4f4f4;
+	padding: 10px;
+	border-radius: 8px;
+	width: 40%;
+}
+
+.flatpickr-title {
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.flatpickr-input {
+	border: 1px solid #ddd;
+	padding: 10px;
+	margin: 10px 0;
+	width: 100%;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+
+input:focus {
+	outline: none;
+	border-color: #3498db;
+}
+
+/* Contenedor principal */
+.container {
+	display: flex;
+	flex-direction: column;
+	/* Para que los campos de hora estén debajo */
+}
+
+/* Contenedor flex para la fecha y el asunto */
+.form-flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	align-items: center; /* Asegura que los elementos se alineen verticalmente */
+}
+
+/* Estilo para los inputs dentro del contenedor flex */
+.flatpickr-container,
+.form-container {
+	width: 48%;
+	/* Asignamos un 48% de ancho a cada input */
+}
+
+
+.form-container {
+	margin-left: 2%;
+	/* Para que haya un pequeño espacio entre el campo de fecha y el campo de asunto */
+}
+
+/* Estilo para el label del campo "Asunto de la reservación" */
+.form-container label {
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+	/* Color oscuro para el texto */
+	margin-bottom: 8px;
+	display: block;
+	/* Para asegurar que el label esté encima del input */
+}
+
+/* Estilo para el input de "Asunto de la reservación" */
+.form-container .form-input {
+	width: 100%;
+	padding: 12px;
+	/* Espaciado dentro del input */
+	font-size: 16px;
+	/* Tamaño de fuente */
+	border: 1px solid #ccc;
+	/* Borde gris claro */
+	border-radius: 8px;
+	/* Bordes redondeados */
+	outline: none;
+	/* Eliminar el contorno al hacer clic */
+	transition: border-color 0.3s ease-in-out;
+	/* Transición para cuando se hace foco */
+
+}
+
+/* Estilo cuando el input está enfocado */
+.form-container .form-input:focus {
+	border-color: #007bff;
+	/* Cambiar el borde cuando el campo esté enfocado */
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+	/* Sombra alrededor para darle más énfasis */
+}
+
+/* Agregar un poco de margen abajo al input */
+.form-container .form-input {
+	margin-bottom: 15px;
+	/* Espacio abajo del input */
+}
+
+
+
+/* Contenedor principal */
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	/* Permite que los elementos se ajusten en nuevas líneas si es necesario */
+	gap: 15px;
+	/* Espacio entre los elementos */
+	justify-content: space-between;
+	/* Distribuye los elementos con espacio entre ellos */
+	margin-bottom: 30px;
+	/* Espacio al fondo */
+}
+
+/* Contenedor para cada campo de fecha */
+.flatpickr-container {
+	flex: 1;
+	/* Hace que cada contenedor ocupe el mismo espacio */
+	min-width: 200px;
+	/* Evita que se vuelvan demasiado pequeños */
+}
+
+/* Hacer que el campo "Asunto de la reservación" se coloque en una nueva fila en pantallas pequeñas */
+.form-container {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	width: 50%;
+}
+
+/* Estilo para el campo "Asunto" */
+.form-container label {
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+}
+
+/* Estilo para el input de "Asunto de la reservación" */
+.form-container .form-input {
+	width: 100%;
+	padding: 12px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	outline: none;
+	transition: border-color 0.3s ease-in-out;
+}
+
+/* Cambiar color cuando el input está en foco */
+.form-container .form-input:focus {
+	border-color: #007bff;
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Asegura que todo el formulario tenga un buen espaciado */
+.container,
+.form-container {
+	margin-bottom: 10px;
+}
+
+/* Hacer que los contenedores de fecha sean una columna en pantallas pequeñas */
+@media (max-width: 768px) {
+	.container {
+		flex-direction: column;
+		/* Los campos se apilan verticalmente */
+		align-items: center;
+		/* Centra los elementos */
+	}
+
+	.flatpickr-container {
+		width: 100%;
+		/* Hace que los contenedores de fecha ocupen todo el ancho disponible */
+		margin-bottom: 10px;
+	}
+
+	.form-container {
+		width: 100%;
+		/* Hace que el campo "Asunto" ocupe todo el ancho disponible */
+	}
+
+
+}
+
+#salonesContainer-res {
+	width: 50%;
+	margin-left: 2%;
+	position: relative;
+    top: -20px; /* Ajusta hacia arriba */
+	left: -40px
+	
+}
+
+/*---------- Botones ------------*/
+
+
+/* Contenedor para los botones */
+.buttons-container {
+    display: flex;
+	width: 100%;
+    gap: 20px; /* Espaciado entre los botones */
+    margin-top: -110px; /* Separación respecto al contenedor superior */
+	margin-left: 500px;
+}
+
+/* Botón base */
+.btn {
+    padding: 12px 20px; /* Tamaño del botón */
+    font-size: 16px; /* Tamaño del texto */
+    border: none; /* Sin bordes */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    font-weight: bold; /* Texto en negrita */
+    transition: all 0.3s ease; /* Efecto de transición */
+}
+
+/* Estilo para botón primario */
+.btn-primary {
+    background-color: #4daadb; /* Azul atractivo */
+    color: white; /* Texto blanco */
+}
+
+.btn-primary:hover {
+    background-color: #3992c1; /* Color más oscuro al pasar por encima */
+}
+
+/* Estilo para botón secundario */
+.btn-secondary {
+    background-color: #f4f4f4; /* Fondo gris claro */
+    color: #333; /* Texto oscuro */
+    border: 1px solid #ddd; /* Borde sutil */
+}
+
+.btn-secondary:hover {
+    background-color: #e2e2e2; /* Fondo ligeramente más oscuro */
+    color: #000; /* Texto más intenso */
+}
+
+
+/*---------------------- Estilos de tablas -------------------*/
+
+table {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	table-layout: fixed;
+  }
+  
+  table caption {
+	font-size: 1.5em;
+	margin: .5em 0 .75em;
+  }
+  
+  table tr {
+	background-color: #f8f8f8;
+	border: 1px solid #ddd;
+	padding: .35em;
+  }
+  
+  table th,
+  table td {
+	padding: .625em;
+	text-align: center;
+  }
+  
+  table th {
+	font-size: .85em;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 600px) {
+	table {
+	  border: 0;
+	}
+  
+	table caption {
+	  font-size: 1.3em;
+	}
+	
+	table thead {
+	  border: none;
+	  clip: rect(0 0 0 0);
+	  height: 1px;
+	  margin: -1px;
+	  overflow: hidden;
+	  padding: 0;
+	  position: absolute;
+	  width: 1px;
+	}
+	
+	table tr {
+	  border-bottom: 3px solid #ddd;
+	  display: block;
+	  margin-bottom: .625em;
+	}
+	
+	table td {
+	  border-bottom: 1px solid #ddd;
+	  display: block;
+	  font-size: .8em;
+	  text-align: right;
+	}
+	
+	table td::before {
+	  /*
+	  * aria-label has no advantage, it won't be read inside a table
+	  content: attr(aria-label);
+	  */
+	  content: attr(data-label);
+	  float: left;
+	  font-weight: bold;
+	  text-transform: uppercase;
+	}
+	
+	table td:last-child {
+	  border-bottom: 0;
+	}
+  }
+
+  /* Resaltar la fila seleccionada */
+.reser-row:hover {
+	background-color: #f0f0f01c; /* Color de fondo al pasar el mouse */
+	cursor: pointer; /* Cambiar el cursor a una mano */
+  }
+  
+  .reser-row.selected {
+	background-color: #ff0808; /* Color de fondo cuando está seleccionada */
+  }
+
+
+ /* -------------------------------- Estilos para el modal ----------------------------------- */
+.modal {
+	display: none; /* Oculto por defecto */
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-contenido {
+	background-color: #fff;
+	padding: 25px;
+	border-radius: 12px;
+	width: 400px; /* Aumentado para mejor distribución */
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+	position: relative;
+	text-align: center;
+	font-family: Arial, sans-serif;
+}
+
+/* Botón de cierre (X) */
+.cerrar-modal {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	font-size: 24px;
+	cursor: pointer;
+	color: #333;
+	font-weight: bold;
+	transition: color 0.3s ease;
+}
+
+.cerrar-modal:hover {
+	color: red;
+}
+
+/* Estilos de los párrafos */
+.modal-contenido p {
+	margin: 10px 0;
+	font-size: 16px;
+	color: #444;
+}
+
+/* Botones */
+.modal-contenido button {
+	width: 100%;
+	padding: 10px;
+	margin-top: 10px;
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: 0.3s ease;
+	font-weight: bold;
+}
+
+/* Botón de completar */
+#btn-completar {
+	background-color: #4CAF50;
+	color: white;
+}
+
+#btn-completar:hover {
+	background-color: #45a049;
+}
+
+/* Botón de borrar */
+#btn-borrar {
+	background-color: #d9534f;
+	color: white;
+}
+
+#btn-borrar:hover {
+	background-color: #c9302c;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.btn-delete {
+    background-color: transparent;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: rgba(220, 53, 69, 0.1);
+    transform: scale(1.1);
+}
+
+.btn-delete i {
+    font-size: 1.2rem;
+}
+
+.btn-complete {
+    background-color: transparent;
+    border: none;
+    color: #28a745;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-complete:hover {
+    background-color: rgba(40, 167, 69, 0.1);
+    transform: scale(1.1);
+}
+
+.btn-complete i {
+    font-size: 1.2rem;
+}
+
+/* Asegurar que los botones de acción no hereden estilos de la fila */
+.reser-row td:last-child {
+    padding: 5px;
+}
+
+.reser-row:hover .btn-delete,
+.reser-row:hover .btn-complete {
+    visibility: visible;
+    opacity: 1;
+}
+
+.password-input-container {
+    margin: 20px 0;
+}
+
+.password-input-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.password-input-container input:focus {
+    border-color: #4daadb;
+    outline: none;
+    box-shadow: 0 0 5px rgba(77, 170, 219, 0.3);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#modal-password .modal-contenido {
+    max-width: 400px;
+}
+
+#modal-password .btn-delete {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#modal-password .btn-secondary {
+    width: 100%;
+    padding: 10px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#modal-password .btn-delete:hover {
+    background-color: #c82333;
+}
+
+#modal-password .btn-secondary:hover {
+    background-color: #5a6268;
+}

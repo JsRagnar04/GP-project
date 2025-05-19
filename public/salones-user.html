@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<title>HALLSYS</title>
+</head>
+
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">HALLSYS</span>
+		</a>
+		<span class="user-id-display" style="color: #000; padding: 10px 20px; display: block; font-size: 0.9em; opacity: 0.8;"></span>
+		<ul class="side-menu top">
+			<li class="active">
+
+				<a href="#" data-home="salones-user">
+					<i class='bx bxs-dashboard'></i>
+					<span class="text">Salones</span>
+				</a>
+
+			</li>
+			<li>
+				<a href="#" data-home="reservacion-user">
+					<i class='bx bxs-shopping-bag-alt'></i>
+					<span class="text">Reservar</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" data-home="reservaciones-dashboard">
+					<i class='bx bxs-doughnut-chart'></i>
+					<span class="text">Mis reservaciones</span>
+				</a>
+			</li>
+
+		</ul>
+		<ul class="side-menu">
+			
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle'></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu'></i>
+			<a href="#" class="nav-link">Buscador</a>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" id ="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>HallSys</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Edificio</a>
+						</li>
+						<li><i class='bx bx-chevron-right'></i></li>
+						<li >
+							<select id="building-filter" class="breadcrumb-select">
+								<option value=''>Todos</option> <!-- Sin filtro -->
+								<!-- Aquí se agregarán dinámicamente los edificios -->
+							</select>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+			<ul id="salonesContainer" class="box-info">
+				<!--Botones de salones-->
+			</ul>
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+	<script src="js/salones-script.js"></script>
+	<script src="js/script.js"></script>
+	
+</body>
+
+</html>

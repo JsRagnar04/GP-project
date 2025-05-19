@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<title>HALLSYS</title>
+</head>
+
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">HALLSYS</span>
+		</a>
+		<span class="user-id-display" style="color: #000; padding: 10px 20px; display: block; font-size: 0.9em; opacity: 0.8;"></span>
+		<ul class="side-menu top">
+			<li class="active">
+
+				<a href="#" data-home="salones-user">
+					<i class='bx bxs-dashboard'></i>
+					<span class="text">Salones</span>
+				</a>
+
+			</li>
+			<li>
+				<a href="#" data-home="reservacion-user">
+					<i class='bx bxs-shopping-bag-alt'></i>
+					<span class="text">Reservar</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" data-home="reservaciones-dashboard">
+					<i class='bx bxs-doughnut-chart'></i>
+					<span class="text">Mis reservaciones</span>
+				</a>
+			</li>
+
+		</ul>
+		<ul class="side-menu">
+
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle'></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu'></i>
+			<a href="#" class="nav-link">Categories</a>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" id="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>HallSys</h1>
+					<ul class="breadcrumb">
+						<li>
+							<select id="edificio-filter" class="breadcrumb-select">
+								<option value=''>Todos los edificios</option>
+							</select>
+						</li>
+						<li><i class='bx bx-chevron-right'></i></li>
+						<li>
+							<select id="salon-filter" class="breadcrumb-select">
+								<option value=''>Todos los salones</option>
+							</select>
+						</li>
+						<li><i class='bx bx-chevron-right'></i></li>
+						<li>
+							<select id="status-filter" class="breadcrumb-select">
+								<option value=''>Todos los estados</option>
+								<option value='Pendiente'>Pendiente</option>
+								<option value="Completada">Completada</option>
+							</select>
+						</li>
+					</ul>
+					<table>
+						<caption>RESERVAS</caption>
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">Salon</th>
+								<th scope="col">Edificio</th>
+								<th scope="col">Fecha</th>
+								<th scope="col">Hora entrada</th>
+								<th scope="col">Hora salida</th>
+								<th scope="col">Asunto</th>
+								<th scope="col">Estatus</th>
+								<th scope="col">Acciones</th>
+							</tr>
+						</thead>
+						<tbody id="reservas-body">
+							<!-- Aqui se insertan las reservas -->
+
+						</tbody>
+					</table>
+
+					<!-- Modal emergente -->
+					<div id="modal-completar" class="modal">
+						<div class="modal-contenido">
+							<span class="cerrar-modal">&times;</span>
+							<h3>Reserva</h3>
+							<p><strong>ID:</strong> <span id="reserva-id"></span></p>
+							<p><strong>Salón:</strong> <span id="reserva-salon"></span></p>
+							<p><strong>Edificio:</strong> <span id="reserva-edificio"></span></p>
+							<p><strong>Fecha:</strong> <span id="reserva-fecha"></span></p>
+							<p><strong>Hora de Entrada:</strong> <span id="reserva-entrada"></span></p>
+							<p><strong>Hora de Salida:</strong> <span id="reserva-salida"></span></p>
+							<p><strong>Asunto:</strong> <span id="reserva-asunto"></span></p>
+							<p><strong>Status:</strong> <span id="reserva-status"></span></p>
+							<button id="btn-completar">Completar Reserva</button>
+							<button id="btn-borrar">Borrar Reserva</button>
+						</div>
+					</div>
+
+					<!-- Modal de confirmación de contraseña -->
+					<div id="modal-password" class="modal">
+						<div class="modal-contenido">
+							<span class="cerrar-modal-password">&times;</span>
+							<h3>Confirmar Contraseña</h3>
+							<p>Por favor, ingrese su contraseña para confirmar el borrado de la reservación.</p>
+							<div class="password-input-container">
+								<input type="password" id="confirm-password" class="form-input" placeholder="Ingrese su contraseña">
+								<div id="password-error" class="error-message" style="display: none; color: red; margin-top: 5px;"></div>
+							</div>
+							<button id="btn-confirm-delete" class="btn-delete">Confirmar Borrado</button>
+							<button id="btn-cancel-delete" class="btn-secondary">Cancelar</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+
+	<script src="js/script.js"></script>
+	<script src="js/reservasUser-script.js"></script>
+</body>
+
+</html>
