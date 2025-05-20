@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <i class='bx bx-code-block' style='color:#4daadb'></i>
                     <span class="text">
                         <h3>${salon.ID_SALON}</h3>
-                        <p>Edificio: ${salon.NOMBRE}</p>
+                        <p>Edificio: ${salon.NOMBRE_EDIFICIO}</p>
                         <p>Piso ${salon.PISO}</p>
                         <p>Capacidad: ${salon.CAPACIDAD}</p>
                     </span>
@@ -85,7 +85,7 @@ document.getElementById('building-filter').addEventListener('change', async (eve
                     <i class='bx bx-code-block' style='color:#4daadb'></i>
                     <span class="text">
                         <h3>${salon.ID_SALON}</h3>
-                        <p>Edificio: ${salon.NOMBRE}</p>
+                        <p>Edificio: ${salon.NOMBRE_EDIFICIO}</p>
                         <p>Piso ${salon.PISO}</p>
                         <p>Capacidad: ${salon.CAPACIDAD}</p>
                     </span>

@@ -96,8 +96,8 @@ app.get('/api/salones', (req, res) => {
 
   // Si 'edificio' existe, filtramos por él. Si no, devolvemos todos los salones.
   const query = edificio ?
-    `SELECT * FROM SALONES WHERE ID_EDIFICIO = ?` :
-    `SELECT * FROM SALONES`;
+    `SELECT s.*, e.NOMBRE as NOMBRE_EDIFICIO FROM SALONES s JOIN EDIFICIOS e ON s.ID_EDIFICIO = e.ID_EDIFICIO WHERE s.ID_EDIFICIO = ?` :
+    `SELECT s.*, e.NOMBRE as NOMBRE_EDIFICIO FROM SALONES s JOIN EDIFICIOS e ON s.ID_EDIFICIO = e.ID_EDIFICIO`;
 
   connection.query(query, [edificio], (err, results) => {
     if (err) {
